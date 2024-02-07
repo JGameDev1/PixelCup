@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum ItemType{Point,Obstacle,SuperItem,Enemy}
+public enum ItemType{Point,SuperItem}
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(CircleCollider2D))]
 public class ItemBehaviour : MonoBehaviour
@@ -20,7 +20,7 @@ public class ItemBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             switch (iT)
-            {
+            {   
                 case ItemType.Point:
                     {
                         GameManager.sharedInstance.myScore+=1;
@@ -32,8 +32,6 @@ public class ItemBehaviour : MonoBehaviour
                         break;
                     }
                 case ItemType.SuperItem:{;break;}
-                case ItemType.Obstacle:{;break;}
-                case ItemType.Enemy:{;break;}
 
             }
 
@@ -54,8 +52,6 @@ public class ItemBehaviour : MonoBehaviour
                     break;
                 }
             case ItemType.SuperItem:{;break;}
-            case ItemType.Obstacle:{;break;}
-            case ItemType.Enemy:{;break;}
         }
     }
 
@@ -77,8 +73,6 @@ public class ItemBehaviour : MonoBehaviour
                     break;
                 }
             case ItemType.SuperItem:{;break;}
-            case ItemType.Obstacle:{;break;}
-            case ItemType.Enemy:{;break;}
         }
     }
 }

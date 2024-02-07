@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class RunnerLvlManager : MonoBehaviour
 {
-public List<GameObject>allLevelRunnerBlocks=new List<GameObject>{}; // lista de los niveles que se van a generar 
-public List<GameObject>currentLevelBlocks=new List<GameObject>{}; // lista de los bloques que se ven en pantalla 
-public List<GameObject>runners=new List<GameObject>{};
+public List<GameObject> allLevelRunnerBlocks = new List<GameObject> { }; // lista de los niveles que se van a generar 
+public List<GameObject> currentLevelBlocks = new List<GameObject> { }; // lista de los bloques que se ven en pantalla 
+public List<GameObject> runners = new List<GameObject> { };
 GameObject cam;
 GameObject player;
+public GameObject Pelota; 
 public float speed;
 public float jumpForce;
 Vector3 blockSpawner;
@@ -18,6 +19,7 @@ Vector3 blockSpawner;
 public Transform animationZone;
 public LayerMask ground;
 public bool weaponed;
+    
 
 
     void Start()
@@ -66,6 +68,18 @@ public bool weaponed;
     public void playerButtonJump()
     {if(Physics2D.Raycast(player.transform.position,Vector2.down,2.5f,ground))
     player.GetComponent<Rigidbody2D>().AddForce(jumpForce*Vector3.up,ForceMode2D.Impulse);}
+
+
+    public void playerKickButton()
+    {
+        if(Pelota.transform.position.x<=player.transform.position.x+1.5f)
+        {Pelota.GetComponent<Rigidbody2D>().velocity=Vector2.right*player.GetComponent<Rigidbody2D>().velocity*3;
+         Pelota.GetComponent<Rigidbody2D>().angularVelocity=-360;
+         Pelota.GetComponent<TrailRenderer>().enabled=true;
+         weaponed = true;
+        }
+}
+
 
     public void limitPlayerY()
     {if(player.transform.position.y>=limitPos.y){player.transform.position=new Vector3(player.transform.position.x,limitPos.y,0);}
