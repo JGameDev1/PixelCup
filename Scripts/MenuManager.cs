@@ -294,9 +294,6 @@ Text backOrExitTxt;
         freeMatchScreen.enabled = true;
     }
 
-    public void PvP(){Debug.LogWarning("ONLINEMATCH");}
-    public void PvCPU(){Debug.LogWarning("OFFLINEMATCH");}
-
     public void GoToLevel(string sceneName){SceneManager.LoadScene(sceneName);
     if(sceneName.Equals("Runner"))
     {MusicManager.sharedInstance.runner=true;MusicManager.sharedInstance.penalties=false;MusicManager.sharedInstance.normalMatch=false;

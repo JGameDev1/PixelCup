@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum ItemType{Point,SuperItem}
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(CircleCollider2D))]
+
 public class ItemBehaviour : MonoBehaviour
 {
     PlayerController playerController;
